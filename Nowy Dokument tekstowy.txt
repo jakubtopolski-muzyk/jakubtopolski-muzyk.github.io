@@ -1,0 +1,12 @@
+strona html
+22.11.2025 - zrobienie podstrony aktualności i index html, wstępna struktura
+23.11.2025 - aktualności poprawa layout
+27.11.2025 - pobranie gita, zaczęcie dodawania zdjęć do aktualnośći
+
+dodać:
+- więcej aktualności
+- może spróbować dodać strony aktualności (niekoniecznie teraz)
+- dodać zdjęcie z organami (prospekt), że jestem organistą, bądź że słucham muzyki organowej
+- podstrona "o mnie" (przycisk pomarańczowy kontakt). NA górze strony opis, pod opisem mojej osoby zdjęcia w układzie instagrama
+- tryb dzień, noc (przyszłość)
+-
