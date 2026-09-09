@@ -1893,10 +1893,104 @@ h1 em,h2 em {
 .instrument-section { 
     background:var(--soft); 
     padding-top:110px; 
-    padding-bottom:125px;
+    padding-bottom:125px; 
 }
 
-.instrument-heading { display:grid;
+.instrument-heading { 
+    display:grid; 
+    grid-template-columns:1fr 1fr 1fr; 
+    gap:8%; 
+    align-items:end; 
+    border-bottom:1px solid var(--line); 
+    padding-bottom:60px; 
+}
+
+.instrument-heading h2 { 
+    font-size:clamp(60px,7vw,100px); 
+    line-height:.84; 
+    letter-spacing:-.09em; 
+    font-weight:500; 
+    margin:65px 0 0; 
+}
+
+.instrument-heading p { 
+    max-width:280px; 
+    color:var(--muted); 
+    font-size:14px; 
+    line-height:1.55; 
+    margin:0 0 4px; 
+}
+
+.instrument-list { 
+    display:grid; 
+    grid-template-columns:1fr 1fr; 
+    padding-top:15px; 
+}
+
+.instrument-list>div { 
+    display:grid; 
+    grid-template-columns:45px 1fr; 
+    gap:12px; 
+    align-items:baseline; 
+    border-bottom:1px solid var(--line); 
+    padding:25px 0; 
+}
+
+.instrument-list span { 
+    color:var(--accent); 
+    font:10px var(--mono); 
+}
+
+.instrument-list strong { 
+    font-size:20px; 
+    font-weight:500; 
+    letter-spacing:-.04em; 
+}
+
+.instrument-list small { 
+    grid-column:2; 
+    color:var(--muted); 
+    font:10px var(--mono); 
+    text-transform:uppercase; 
+}
+
+.personal-cta { 
+    background:var(--accent); 
+    color:var(--ink); 
+    min-height:500px; 
+    padding-top:38px; 
+    padding-bottom:105px; 
+}
+
+.personal-cta .section-kicker { 
+    color:rgba(26,28,27,.65); 
+}
+
+.personal-cta h2 { 
+    font-size:clamp(62px,9vw,130px); 
+    line-height:.86; 
+    letter-spacing:-.09em; 
+    font-weight:500; 
+    margin:110px 0 38px; 
+}
+
+.personal-cta h2 em { 
+    font-family:Georgia,serif; 
+}
+
+.personal-cta p { 
+    max-width:300px; 
+    font-size:14px; 
+    line-height:1.5; 
+}
+
+.personal-cta .mail-link { 
+    border-color:var(--ink); 
+    margin-top:35px; 
+}
+
+.personal-page .studio-footer.contact { 
+    min-height:92px; 
 }
 
 @media (max-width:760px) { 
