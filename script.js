@@ -44,4 +44,39 @@ document.querySelectorAll('.play-button').forEach((button) => {
   });
 });
 
+const tickerTrack = document.querySelector('.ticker-track');
+
+if (tickerTrack) {
+  const tickerWords = ['SESSION KEYS', 'LIVE ELECTRONICS', 'SOUND DESIGN', 'ARRANGEMENT'];
+
+  const buildTickerGroup = () => {
+    const group = document.createElement('div');
+    group.className = 'ticker-group';
+
+    tickerWords.forEach((word, index) => {
+      const wordElement = document.createElement('span');
+      wordElement.className = 'ticker-word';
+      wordElement.textContent = word;
+      group.appendChild(wordElement);
+
+      if (index < tickerWords.length - 1) {
+        const separator = document.createElement('span');
+        separator.className = 'ticker-separator';
+        separator.textContent = '✳';
+        group.appendChild(separator);
+      }
+    });
+
+    return group;
+  };
+
+  const firstGroup = buildTickerGroup();
+  const secondGroup = buildTickerGroup();
+  secondGroup.setAttribute('aria-hidden', 'true');
+
+  tickerTrack.innerHTML = '';
+  tickerTrack.appendChild(firstGroup);
+  tickerTrack.appendChild(secondGroup);
+}
+
 document.querySelector('.back-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));

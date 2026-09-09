@@ -418,20 +418,34 @@ h1 em,h2 em {
 
 .ticker-track { 
     display:flex; 
-    justify-content:space-around; 
     align-items:center; 
-    gap:28px; 
-    animation:marquee 24s linear infinite; 
+    width:max-content; 
+    animation:marquee 20s linear infinite; 
     min-width:max-content; 
 }
 
-.ticker b { 
+.ticker-group { 
+    display:flex; 
+    align-items:center; 
+    gap:24px; 
+    flex-shrink:0; 
+    white-space:nowrap; 
+}
+
+.ticker-word,
+.ticker-separator { 
+    display:inline-block; 
+    flex-shrink:0; 
+}
+
+.ticker-separator { 
     font-size:15px; 
     font-weight:400; 
 }
 
 @keyframes marquee { 
-    to { transform:translateX(-25%); } 
+    from { transform:translateX(0); }
+    to { transform:translateX(-50%); }
 }
 
 /* Core sections */
@@ -1641,7 +1655,8 @@ h1 em,h2 em {
     min-height:510px; 
     padding-top:40px; 
     padding-bottom:110px; 
-    background:var(--paper); 
+    background:var(--accent); 
+    color:var(--ink); 
 }
 
 .studio-cta h2 { 
@@ -1653,11 +1668,11 @@ h1 em,h2 em {
 }
 
 .studio-cta h2 em { 
-    color:var(--accent); 
+    color:var(--ink); 
 }
 
 .studio-cta>p { 
-    color:var(--muted); 
+    color:rgba(23,25,25,.8); 
     font-size:14px; 
     max-width:315px; 
     line-height:1.5; 
@@ -1665,6 +1680,7 @@ h1 em,h2 em {
 
 .studio-cta .mail-link { 
     border-color:var(--ink); 
+    color:var(--ink); 
     margin-top:35px; 
 }
 
