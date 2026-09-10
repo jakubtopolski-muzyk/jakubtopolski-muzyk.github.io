@@ -420,30 +420,29 @@ h1 em,h2 em {
     display:flex; 
     align-items:center; 
     width:max-content; 
-    animation:marquee 20s linear infinite; 
     min-width:max-content; 
+    animation:ticker-scroll 18s linear infinite; 
 }
 
-.ticker-group { 
+.ticker-content { 
     display:flex; 
     align-items:center; 
-    gap:24px; 
     flex-shrink:0; 
     white-space:nowrap; 
+    padding-right:0; 
 }
 
-.ticker-word,
-.ticker-separator { 
+.ticker-content span { 
     display:inline-block; 
-    flex-shrink:0; 
 }
 
 .ticker-separator { 
     font-size:15px; 
     font-weight:400; 
+    margin:0 10px; 
 }
 
-@keyframes marquee { 
+@keyframes ticker-scroll { 
     from { transform:translateX(0); }
     to { transform:translateX(-50%); }
 }
