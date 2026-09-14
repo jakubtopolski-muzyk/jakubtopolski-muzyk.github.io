@@ -63,7 +63,8 @@
       </div>
 
       <div class="studio-hero-art">
-        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Music studio with instruments and a mixing desk" />
+        <img src="images/photo1.png" alt="Music studio with instruments and a mixing desk" />
+        <img src="images/photo1.png" width="1200" height="800" alt="Music studio with instruments and a mixing desk" >
         <div class="art-label">
           <span>JT / STUDIO</span>
           <span>signal over noise</span>
@@ -71,28 +72,33 @@
       </div>
     </section>
 
-    <section class="ticker" aria-label="Specialties">
-      <div class="ticker-track">
-        <div class="ticker-group">
-          <span>SESSION KEYS</span>
-          <span class="ticker-separator">✳</span>
-          <span>LIVE ELECTRONICS</span>
-          <span class="ticker-separator">✳</span>
-          <span>SOUND DESIGN</span>
-          <span class="ticker-separator">✳</span>
-          <span>ARRANGEMENT</span>
-        </div>
-        <div class="ticker-content" aria-hidden="true">
-          <span>SESSION KEYS</span>
-          <span class="ticker-separator">✳</span>
-          <span>LIVE ELECTRONICS</span>
-          <span class="ticker-separator">✳</span>
-          <span>SOUND DESIGN</span>
-          <span class="ticker-separator">✳</span>
-          <span>ARRANGEMENT</span>
-        </div>
+   <section class="ticker" aria-label="Specialties">
+    <!-- Pasek ma przypisaną klasę 'is-loading', żeby stał sztywno na starcie -->
+    <div class="ticker-track is-loading">
+    
+      <!-- Zostawiamy TYLKO JEDEN blok tekstu. Drugi doklei JavaScript -->
+      <div class="ticker-content">
+        <span>SESSION KEYS</span>
+        <span>✳</span>
+        <span>LIVE ELECTRONICS</span>
+        <span>✳</span>
+        <span>SOUND DESIGN</span>
+        <span>✳</span>
+        <span>ARRANGEMENT</span>
+        <span>✳</span>
+        <span>SESSION KEYS</span>
+        <span>✳</span>
+        <span>LIVE ELECTRONICS</span>
+        <span>✳</span>
+        <span>SOUND DESIGN</span>
+        <span>✳</span>
+        <span>ARRANGEMENT</span>
+        <span>✳</span>
       </div>
-    </section>
+
+    </div>
+   </section>
+
 
     <section id="services" class="services-section section-pad">
       <div class="services-intro">
@@ -321,5 +327,30 @@
   </footer>
 
   <script src="script.js"></script>
+
+<script>
+  window.addEventListener('load', function() {
+    const track = document.querySelector('.ticker-track');
+    const content = document.querySelector('.ticker-content');
+    
+    if (track && content) {
+      // 1. Klonujemy pierwszy blok tekstu i dodajemy mu aria-hidden
+      const clone = content.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+      
+      // 2. Mierzymy dokładną szerokość jednego bloku w pikselach
+      const contentWidth = content.getBoundingClientRect().width;
+      
+      // 3. Wstrzykujemy precyzyjny wymiar przesunięcia bezpośrednio do pamięci CSS
+      // Dzięki temu przeglądarka wie co do piksela, jak ma wyglądać animacja
+      document.documentElement.style.setProperty('--ticker-width', `-${contentWidth}px`);
+      
+      // 4. Usuwamy blokadę ładowania i odpalamy idealnie gładką animację
+      track.classList.remove('is-loading');
+    }
+  });
+</script>
+
 </body>
 </html>

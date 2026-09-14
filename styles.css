@@ -322,6 +322,7 @@ h1 em,h2 em {
     background:var(--blue); 
 }
 
+
 .photo-frame:after { 
     content:''; 
     position:absolute; 
@@ -407,44 +408,70 @@ h1 em,h2 em {
     margin-left:30%; 
 }
 
-.ticker { 
-    overflow:hidden; 
-    background:var(--accent); 
-    color:var(--ink); 
-    padding:17px 0; 
-    font:11px var(--mono); 
-    white-space:nowrap; 
+/* Twój zakomentowany body - zostawiam go bez zmian */
+/* 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f172a; 
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+} 
+*/
+
+.ticker {
+  overflow: hidden;
+  width: 100%;
+  background-color: #f05b3b; 
+  padding: 15px 0;
+  font: 9px;
+  /*box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);*/
+  
+  /*mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);*/
 }
 
-.ticker-track { 
-    display:flex; 
-    align-items:center; 
-    width:max-content; 
-    min-width:max-content; 
-    animation:ticker-scroll 18s linear infinite; 
+.ticker-track {
+  display: flex;
+  width: max-content;
+  /* Odpalamy animację standardowo */
+  animation: ticker-scroll 22s linear infinite;
+  will-change: transform;
 }
 
-.ticker-content { 
-    display:flex; 
-    align-items:center; 
-    flex-shrink:0; 
-    white-space:nowrap; 
-    padding-right:0; 
+/* Kiedy strona się odświeża i ładuje, ten styl zamraża pasek w miejscu, */
+/* zapobiegając jakimkolwiek uskokom i drganiom */
+.ticker-track.is-loading {
+  animation: none !important;
+  opacity: 0; /* Opcjonalnie: ukrywa pasek na ułamek sekundy, dopóki zdjęcia się nie ułożą */
 }
 
-.ticker-content span { 
-    display:inline-block; 
+
+.ticker-content {
+  display: flex;
+  flex-shrink: 0; /* Blokada przed zgnieceniem tekstu przez zdjęcia */
+  gap: 2.5rem; 
+  padding-right: 2.5rem; 
 }
 
-.ticker-separator { 
-    font-size:15px; 
-    font-weight:400; 
-    margin:0 10px; 
+.ticker-content span {
+  color: black; 
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-@keyframes ticker-scroll { 
-    from { transform:translateX(0); }
-    to { transform:translateX(-50%); }
+/* DYNAMICZNA ANIMACJA: Zamiast procentów, przesuwamy o precyzyjną liczbę pikseli */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--ticker-width, -50%));
+  }
 }
 
 /* Core sections */
